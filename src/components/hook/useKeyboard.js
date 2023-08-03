@@ -30,7 +30,6 @@ const useKeyboard = () => {
     const handleKeyboardDown = (event) => {
       const { code } = event;
       const action = ACTIONS_KEYBOARD_MAP[code];
-      console.log(action);
 
       if (action) {
         /* if (actions[action])
@@ -45,7 +44,6 @@ const useKeyboard = () => {
     const handleKeyboardUp = (event) => {
       const { code } = event;
       const action = ACTIONS_KEYBOARD_MAP[code];
-      console.log(action);
 
       if (action) {
         /* if (!actions[action])
