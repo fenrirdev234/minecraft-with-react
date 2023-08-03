@@ -2,14 +2,15 @@ import { useSphere } from "@react-three/cannon";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { Vector3 } from "three";
+import useKeyboard from "./hook/useKeyboard";
 
 const Player = () => {
   const { camera } = useThree();
-
+  const actions = useKeyboard();
   const [ref, api] = useSphere(() => ({
     mass: 1,
     type: "Dynamic",
-    position: [0, 0.5, 0],
+    position: [0, 1, 0],
   }));
 
   const pos = useRef([0, 0, 0]);
