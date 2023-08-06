@@ -22,9 +22,9 @@ logTexture.magFilter = NearestFilter;
 woodTexture.magFilter = NearestFilter;
 
 export {
+  dirtTexture,
   grassTexture,
   glassTexture,
-  dirtTexture,
   logTexture,
   woodTexture,
   groundTexture,
