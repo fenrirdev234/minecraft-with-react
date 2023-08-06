@@ -2,7 +2,7 @@ import { useSphere } from "@react-three/cannon";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { Vector3 } from "three";
-import useKeyboard from "./hook/useKeyboard";
+import useKeyboard from "../hook/useKeyboard";
 
 const CHARACTER_SPEED = 5;
 const CHARACTER_JUMP_FORCE = 4;
