@@ -17,6 +17,7 @@ const Cube = ({ position, texture, id }) => {
     state.addCube,
     state.removeCube,
   ]);
+
   return (
     <mesh
       onPointerMove={(e) => {
@@ -61,6 +62,8 @@ const Cube = ({ position, texture, id }) => {
         color={isHovered ? "grey" : "white"}
         map={activeTexture}
         attach={"material"}
+        transparent={true}
+        opacity={texture === "glass" ? 0.6 : 1}
       />
     </mesh>
   );

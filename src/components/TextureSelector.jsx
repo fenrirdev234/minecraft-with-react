@@ -14,18 +14,6 @@ export const TextureSelector = () => {
   const { dirt, grass, glass, wood, log } = useKeyboard();
 
   useEffect(() => {
-    const visibilityTimeout = setTimeout(() => {
-      setVisible(false);
-    }, 1000);
-
-    setVisible(true);
-
-    return () => {
-      clearTimeout(visibilityTimeout);
-    };
-  }, [texture]);
-
-  useEffect(() => {
     const options = {
       dirt,
       grass,
@@ -42,20 +30,36 @@ export const TextureSelector = () => {
       const [textureName] = selectedTexture;
       setTexture(textureName);
     }
-  }, [dirt, grass, glass, wood, log]);
+  }, [setTexture, dirt, grass, glass, wood, log]);
+
+  useEffect(() => {
+    const visibilityTimeout = setTimeout(() => {
+      setVisible(false);
+    }, 1000);
+
+    setVisible(true);
+
+    return () => {
+      clearTimeout(visibilityTimeout);
+    };
+  }, [texture]);
 
   return (
-    <div className="texture-selector">
-      {Object.entries(images).map(([imgKey, img]) => {
-        return (
-          <img
-            className={texture === imgKey.replace("Img", "") ? "selected" : ""}
-            key={imgKey}
-            src={img}
-            alt={imgKey}
-          />
-        );
-      })}
-    </div>
+    visible && (
+      <div className="texture-selector">
+        {Object.entries(images).map(([imgKey, img]) => {
+          return (
+            <img
+              className={
+                texture === imgKey.replace("Img", "") ? "selected" : ""
+              }
+              key={imgKey}
+              src={img}
+              alt={imgKey}
+            />
+          );
+        })}
+      </div>
+    )
   );
 };
